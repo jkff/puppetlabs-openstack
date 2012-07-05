@@ -34,8 +34,6 @@ $fixed_network_range     = '10.0.0.0/24'
 $floating_network_range  = '192.168.101.64/28'
 # switch this to true to have all service log at verbose
 $verbose                 = false
-# by default it does not enable atomatically adding floating IPs
-$auto_assign_floating_ip = false
 
 
 #### end shared variables #################
@@ -62,7 +60,6 @@ node /openstack_all/ {
     floating_range          => $floating_network_range,
     fixed_range             => $fixed_network_range,
     verbose                 => $verbose,
-    auto_assign_floating_ip => $auto_assign_floating_ip,
   }
 
   class { 'openstack::auth_file':
